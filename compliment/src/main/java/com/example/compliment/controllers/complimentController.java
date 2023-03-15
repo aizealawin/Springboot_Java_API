@@ -1,9 +1,12 @@
 package com.example.compliment.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,6 +63,19 @@ public class complimentController {
     final compliment updatedCompliment = complimentRepository.save(compliment);
     return ResponseEntity.ok(updatedCompliment);
   }
+
   // delete compliment
+  @DeleteMapping("/compliments/{id}")
+  public Map<String, Boolean> deleteCompliment(@PathVariable(value = "id") Long complimentId)
+      throws ResourceNotFoundException {
+    compliment compliment = complimentRepository.findById(complimentId)
+        .orElseThrow(() -> new ResourceNotFoundException("Compliment not found for this id ::" + complimentId));
+
+    complimentRepository.delete(compliment);
+    Map<String, Boolean> response = new HashMap<>();
+    response.put("deleted", Boolean.TRUE);
+    return response;
+
+  }
 
 }
