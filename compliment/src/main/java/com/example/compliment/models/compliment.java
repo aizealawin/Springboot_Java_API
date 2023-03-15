@@ -1,7 +1,5 @@
 package com.example.compliment.models;
 
-import org.springframework.web.servlet.FlashMapManager;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
