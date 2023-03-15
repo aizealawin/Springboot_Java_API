@@ -1,5 +1,7 @@
 package com.example.compliment.models;
 
+import org.springframework.web.servlet.FlashMapManager;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,21 +14,13 @@ import jakarta.persistence.Table;
 
 public class compliment {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
-
-  @Column(name = "native_compliment")
   private String nativeCompliment;
-
-  @Column(name = "language")
   private String language;
-
-  @Column(name = "translation")
   private String translation;
 
   public compliment() {
-    super();
+
   }
 
   public compliment(String nativeCompliment, String language, String translation) {
@@ -35,6 +29,8 @@ public class compliment {
     this.translation = translation;
   }
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   public long getId() {
     return id;
   }
@@ -43,6 +39,7 @@ public class compliment {
     this.id = id;
   }
 
+  @Column(name = "native_compliment", nullable = false)
   public String getNativeCompliment() {
     return nativeCompliment;
   }
@@ -51,6 +48,7 @@ public class compliment {
     this.nativeCompliment = nativeCompliment;
   }
 
+  @Column(name = "language", nullable = false)
   public String getLanguage() {
     return language;
   }
@@ -59,6 +57,7 @@ public class compliment {
     this.language = language;
   }
 
+  @Column(name = "translation", nullable = false)
   public String getTranslation() {
     return translation;
   }
@@ -67,4 +66,9 @@ public class compliment {
     this.translation = translation;
   }
 
+  @Override
+  public String toString() {
+    return "compliment [id=" + id + ", nativeCompliment=" + nativeCompliment + ", language=" + language + "translation="
+        + translation + "]";
+  }
 }
