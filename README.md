@@ -29,3 +29,9 @@ Step Two:
   - Exceptions
   - Models
   - Repository
+
+Step Three:
+- Head over to the src/main/resources/application.properties and add the PostgreSQL db details to it. This includes the username / password as we'll need that for when we deploy it to a host. 
+
+Step Four: 
+- 
