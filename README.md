@@ -21,3 +21,11 @@ Step One:
   - Packaging: jar
   - Dependencies: Web, JPA, PostgreSQL
 
+- Unzip the file into VSCode and open the project
+
+Step Two: 
+- Create the following folders and their respective .java files in the src/main/java/com/example/name folder:
+  - Controllers
+  - Exceptions
+  - Models
+  - Repository
